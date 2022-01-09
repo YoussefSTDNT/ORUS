@@ -29,16 +29,16 @@
 
                   <div class="btn-group btn-group-toggle d-flex align-items-center justify-content-center mt-4 mb-4" data-toggle="buttons">
                     <label class="btn btn-secondary">
-                      <input type="radio" name="option" id="radioProfessor" autocomplete="off"> Professor
+                      <input type="radio" name="option" id="radioProfessor" autocomplete="off" onclick="jsSignInSubmitEnable();"> Professor
                     </label>
                     <label class="btn btn-secondary">
-                      <input type="radio" name="option" id="radioStudent" autocomplete="off"> Student
+                      <input type="radio" name="option" id="radioStudent" autocomplete="off" onclick="jsSignInSubmitEnable();"> Student
                     </label>
                     <label class="btn btn-secondary">
-                      <input type="radio" name="option" id="radioIt" autocomplete="off"> IT
+                      <input type="radio" name="option" id="radioIt" autocomplete="off" onclick="jsSignInSubmitEnable();"> IT
                     </label>
                   </div>
-                  <div class="sign-in-row rounded border border-secondary">
+                  <div id="formSignInHeader" class="sign-in-row rounded border border-secondary">
                     <h2 class="text-center">Choose who you are before signing in!</h2>
                   </div>
                   <button type="submit" id="formSignInSubmit" class="btn btn-primary btn-md btn-block">Sign In</button>
@@ -53,6 +53,18 @@
       <small>Copyright &copy; ORUS</small>
     </div>
     <!-- Optional JavaScript; choose one of the two! -->
+    
+    <script>
+      document.getElementById("formSignInSubmit").disabled=true;
+      document.getElementById("formSignInSubmit").classList.add("btn-danger");
+
+      function jsSignInSubmitEnable() {
+          document.getElementById("formSignInSubmit").disabled = false;
+          document.getElementById("formSignInSubmit").classList.remove("btn-danger");
+          document.getElementById("formSignInHeader").classList.add("d-none");
+          document.getElementById("formSignInSubmit").classList.add("btn-success");
+      }
+    </script>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
