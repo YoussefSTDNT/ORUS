@@ -1,0 +1,21 @@
+.sign-in-row {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+    margin-bottom: 30px;
+    padding: 10px 0 10px 0;
+}
+html body {
+    background-color: lightgoldenrodyellow;
+    background: linear-gradient(to right, lightslategray, rgba(26, 7, 48, 0.425));
+  }
+
+  #sticky-footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:80px;
+    width:100%;
+    background:#999;
+ }

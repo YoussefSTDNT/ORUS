@@ -8,14 +8,50 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <!-- ORUSystem CSS -->
+    <link rel="stylesheet" href="orus.css">
+    <title>Online Registration University System</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <div class="container">
+      <!-- SIGN IN FORM -->
+      <div class="row sign-in-row rounded border border-dark">
+            <div class="col-lg-4 blockquote text-center"><h1>Online Registration University System</h1></div>
+            <div class="col-lg-9">
+              <form name="formSignIn" action="signin.ctrl.php" method="post" novalidate>
+                <div class="form-inline">
+                  <label class="sr-only" for="formSignInEmail">Email</label>
+                  <input type="email" class="form-control form-control-sm mb-2 mr-sm-2 mb-sm-0" id="formSignInEmail" name="formSignInEmail" placeholder="Email">
 
-    <?php 
-    echo 'We are running PHP, version: ' . phpversion(); phpinfo();?>
+                  <label class="sr-only mt-1" for="formSignInPassword">Password</label>
+                  <input type="password" class="form-control form-control-sm mb-2 mr-sm-2 mb-sm-0" id="formSignInPassword" name="formSignInPassword" placeholder="Password">
 
+
+                  <div class="btn-group btn-group-toggle d-flex align-items-center justify-content-center mt-4 mb-4" data-toggle="buttons">
+                    <label class="btn btn-secondary">
+                      <input type="radio" name="option" id="radioProfessor" autocomplete="off"> Professor
+                    </label>
+                    <label class="btn btn-secondary">
+                      <input type="radio" name="option" id="radioStudent" autocomplete="off"> Student
+                    </label>
+                    <label class="btn btn-secondary">
+                      <input type="radio" name="option" id="radioIt" autocomplete="off"> IT
+                    </label>
+                  </div>
+                  <div class="sign-in-row rounded border border-secondary">
+                    <h2 class="text-center">Choose who you are before signing in!</h2>
+                  </div>
+                  <button type="submit" id="formSignInSubmit" class="btn btn-primary btn-md btn-block">Sign In</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          
+    </div>
+    <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; ORUS</small>
+    </div>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
