@@ -7,7 +7,7 @@ try {
     //DOCKER
     //$connection = new PDO('mysql:host=mysql;dbname=talker_db', 'root', 'talker-root-password');
 
-    //VAGRANT
+    //VAGRANT //PDO is a php extension (class added to the php code to access and modify data in a database) to connect php and mysql database
     $connection = new PDO('mysql:host=localhost;dbname=orus_db', VAGRANT[0], VAGRANT[1]);
 
     //XAMPP

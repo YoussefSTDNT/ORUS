@@ -1,3 +1,8 @@
+<?php 
+session_start();
+require 'system.ctrl.php';
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,14 +19,28 @@
   </head>
   <body>
     <div class="container">
+
+    <?php if (!empty($_SESSION["msgid"]) && phpShowSystemFeedback($_SESSION["msgid"])[0]!="") { ?>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="alert alert-<?php echo (phpShowSystemFeedback($_SESSION['msgid'])[0]); ?>" role="alert">
+            <?php echo (phpShowSystemFeedback($_SESSION['msgid'])[1]); ?>
+          </div>
+        </div>
+      </div>
+
+    <?php } ?>
+
+
       <!-- SIGN IN FORM -->
       <div class="row sign-in-row rounded border border-dark">
             <div class="col-lg-4 blockquote text-center"><h1>Online Registration University System</h1></div>
             <div class="col-lg-9">
-              <form name="formSignIn" action="signin.ctrl.php" method="post" novalidate>
+              <form name="formSignIn" action="signin.ctrl.php" method="post">
                 <div class="form-inline">
-                  <label class="sr-only" for="formSignInEmail">Email</label>
-                  <input type="email" class="form-control form-control-sm mb-2 mr-sm-2 mb-sm-0" id="formSignInEmail" name="formSignInEmail" placeholder="Email">
+                  <label class="sr-only" for="formSignInId">ID</label>
+                  <input type="text" class="form-control form-control-sm mb-2 mr-sm-2 mb-sm-0" id="formSignInId" name="formSignInId" placeholder="ID">
 
                   <label class="sr-only mt-1" for="formSignInPassword">Password</label>
                   <input type="password" class="form-control form-control-sm mb-2 mr-sm-2 mb-sm-0" id="formSignInPassword" name="formSignInPassword" placeholder="Password">
@@ -29,16 +48,16 @@
 
                   <div class="btn-group btn-group-toggle d-flex align-items-center justify-content-center mt-4 mb-4" data-toggle="buttons">
                     <label class="btn btn-secondary">
-                      <input type="radio" name="option" id="radioProfessor" autocomplete="off" onclick="jsSignInSubmitEnable();"> Professor
+                      <input type="radio" name="option" value='1' id="radioProfessor" autocomplete="off" onclick="jsSignInSubmitEnable();"> Professor
                     </label>
                     <label class="btn btn-secondary">
-                      <input type="radio" name="option" id="radioStudent" autocomplete="off" onclick="jsSignInSubmitEnable();"> Student
+                      <input type="radio" name="option" value='2' id="radioStudent" autocomplete="off" onclick="jsSignInSubmitEnable();"> Student
                     </label>
                     <label class="btn btn-secondary">
-                      <input type="radio" name="option" id="radioIt" autocomplete="off" onclick="jsSignInSubmitEnable();"> IT
+                      <input type="radio" name="option" value='3' id="radioIt" autocomplete="off" onclick="jsSignInSubmitEnable();"> IT
                     </label>
                   </div>
-                  <div id="formSignInHeader" class="sign-in-row rounded border border-secondary">
+                  <div id="formSignInHeader" class="sign-in-row rounded border border-danger">
                     <h2 class="text-center">Choose who you are before signing in!</h2>
                   </div>
                   <button type="submit" id="formSignInSubmit" class="btn btn-primary btn-md btn-block">Sign In</button>
@@ -52,8 +71,10 @@
     <div class="container text-center">
       <small>Copyright &copy; ORUS</small>
     </div>
+
+    <?php $_SESSION["msgid"]=""; ?>
+
     <!-- Optional JavaScript; choose one of the two! -->
-    
     <script>
       document.getElementById("formSignInSubmit").disabled=true;
       document.getElementById("formSignInSubmit").classList.add("btn-danger");
@@ -61,8 +82,10 @@
       function jsSignInSubmitEnable() {
           document.getElementById("formSignInSubmit").disabled = false;
           document.getElementById("formSignInSubmit").classList.remove("btn-danger");
-          document.getElementById("formSignInHeader").classList.add("d-none");
+          document.getElementById("formSignInSubmit").classList.remove("btn-md");
           document.getElementById("formSignInSubmit").classList.add("btn-success");
+          document.getElementById("formSignInSubmit").classList.add("btn-lg");
+          document.getElementById("formSignInHeader").classList.add("d-none");
       }
     </script>
 

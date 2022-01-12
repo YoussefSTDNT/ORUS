@@ -2,17 +2,19 @@
 
  require 'db-conn.inc.php';
 
- /*echo '<table border="1">';
- foreach($connection->query('select * from movies') as $record){
+ echo '<table border="1">';
+ foreach($connection->query('select * from students') as $record){
      //print_r($record);
      echo '<tr>';
-     echo '<td>' . $record['id'] . '</td>';
-     echo '<td>' . $record['title'] . '</td>';
-     echo '<td>' . $record['length'] . '</td>';
-     echo '<td>' . $record['genre'] . '</td>';
-     echo '<td>' . $record['actor'] . '</td>';
+     echo '<td>' . $record['student_id'] . '</td>';
+     echo '<td>' . $record['student_name'] . '</td>';
+     echo '<td>' . $record['student_password'] . '</td>';
+     echo '<td>' . $record['student_city'] . '</td>';
+     echo '<td>' . $record['student_phone'] . '</td>';
+     echo '<td>' . $record['student_tuition'] . '</td>';
+     echo '<td>' . $record['department_id'] . '</td>';
      echo '</tr>';
  }
- echo '</table>';*/
+ echo '</table>';
 
 ?>
