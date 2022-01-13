@@ -1,6 +1,17 @@
 <?php 
 session_start();
 require 'system.ctrl.php';
+if(!empty($_SESSION["msgid"])){
+  if($_SESSION["option"]==1){
+    header("Location: professor.php");
+  }
+  else if($_SESSION["option"]==2){
+    header("Location: student.php");
+  }
+  else if($_SESSION["option"]==3){
+    header("Location: it.php");
+  }
+}
 ?>
 
 <!doctype html>

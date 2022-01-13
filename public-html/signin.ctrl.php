@@ -23,14 +23,17 @@
     } else if ($user_password==$dbUserRow[$_SESSION["user_password"]]) { //user OK, password OK
         if($user_option==1){
         $_SESSION["uid"] = $dbUserRow["professor_id"];
+        $_SESSION["option"]=$user_option;
         header('Location: professor.php');
         }
         if($user_option==2){
             $_SESSION["uid"] = $dbUserRow["student_id"];
+            $_SESSION["option"]=$user_option;
             header('Location: student.php');
         }
         if($user_option==3){
             $_SESSION["uid"] = $dbUserRow["it_users_id"];
+            $_SESSION["option"]=$user_option;
             header('Location: it.php');
         }
         
