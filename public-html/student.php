@@ -28,7 +28,6 @@ if(empty($_SESSION["uid"])){
     $db_data="";
     ?>
     
-    <div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom sign-in-row rounded border border-dark">
             <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none col-lg-6">
                 <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
@@ -40,7 +39,57 @@ if(empty($_SESSION["uid"])){
                 </ul>
             </div>
         </header>
-        </div>
+
+        <!-- SYSTEM FEEDBACK MESSAGES -->
+        <?php if (!empty($_SESSION["msgid"]) && phpShowSystemFeedback($_SESSION["msgid"])[0]!="") { ?>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-<?php echo (phpShowSystemFeedback($_SESSION['msgid'])[0]); ?>" role="alert">
+                    <?php echo (phpShowSystemFeedback($_SESSION['msgid'])[1]); ?>
+                    </div>
+                </div>
+            </div>
+
+        <?php } ?>
+
+        <div class="container">
+            
+                <div class="rounded-top border border-dark mb-0 sign-in-row col-3"><h2>Registration</h2></div>
+                <div class="sign-in-row rounded border border-dark">
+                    
+                    <table class="table text-center ">
+                        <thead>
+                        
+                            <tr>
+                            <th scope="col">Check</th>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Seats Available</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <form action='checkbox-form.ctrl.php' method='post'>
+                            <?php foreach($connection->query('select * from courses') as $record){ ?>
+                                <?php
+                                echo '<tr>';
+                                echo "<td><input class='form-check-input' type='checkbox' name=". $record['course_name'] . "value=". $record['course_id'] . "id='flexCheckDefault' checked></td>"; 
+                                echo '<td>' . $record['course_id'] . '</td>';
+                                echo '<td>' . $record['course_name'] . '</td>';
+                                echo '<td>' . $record['course_seats'] . '</td>';
+                                echo '</tr>';
+                                ?>
+                            <?php } ?>
+                            <button type='button' class='btn btn-primary'>Submit</button>
+                            </form>
+                        </tbody>
+                        
+                    </table>
+                    
+                     
+                </div>
+                
+            
 
     </div>
     <!-- Option 1: Bootstrap Bundle with Popper -->

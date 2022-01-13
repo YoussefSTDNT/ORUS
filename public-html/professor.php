@@ -27,9 +27,7 @@ if(empty($_SESSION["uid"])){
     $dbUserRow=phpFetchDB('SELECT * FROM professors WHERE professor_id=?',$db_data);
     $db_data="";
     ?>
-
-    <div class="container">
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom sign-in-row rounded border border-dark">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom sign-in-row rounded border border-dark">
             <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none col-lg-6">
                 <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
                 <span class="fs-4">Hi, <?php echo $dbUserRow["professor_name"];?></span>
@@ -39,11 +37,12 @@ if(empty($_SESSION["uid"])){
                     <li class="nav-item"><a href="logout.ctrl.php" class="nav-link active" aria-current="page">Log Out</a></li>
                 </ul>
             </div>
-        </header>
+    </header>
+    <div class="container">
 
         <div class="sign-in-row rounded border border-dark d-flex flex-column" >
             <!-- THIS FORM FOR SHOWING SELECTED STUDENTS -->
-            <form action="showselectedstudents.ctrl.php" method="post">
+            <form action="show-selected-students.ctrl.php" method="post">
                 <div class="mb-3">
                     <select class="form-select" name="selectOption" aria-label="Default select example">
                         <option selected>Search Student based on</option>
@@ -61,7 +60,7 @@ if(empty($_SESSION["uid"])){
             </form>
 
             <?php if($_SESSION["showSelectedStudentsFlag"]==1){ ?>
-                <table class="table">
+                <table class="table table-striped">
                     <thead>
                         <tr>
                         <th scope="col">#</th>
@@ -88,7 +87,7 @@ if(empty($_SESSION["uid"])){
                     </tbody>
                     </table>
             <?php } else if($_SESSION["showSelectedStudentsFlag"]==2) { ?>
-                <table class="table">
+                <table class="table table-dark table-striped">
                     <thead>
                         <tr>
                         <th scope="col">#</th>
@@ -153,9 +152,9 @@ if(empty($_SESSION["uid"])){
             <?php } ?>
 
             <?php if($_SESSION["showStudentsFlag"]==1) {?>
-                <form name="formHideStudents" action="hidestudents.ctrl.php" method="post">
+                <form name="formHideStudents" action="hide-students.ctrl.php" method="post">
                     <div class="">
-                <button type="submit" class="btn btn-primary" id="formHideStudentsButton" onclick="jsShowButtonOfShowAll();">Hide all Students Data</button>
+                <button type="submit" class="btn btn-secondary" id="formHideStudentsButton" onclick="jsShowButtonOfShowAll();">Hide all Students Data</button>
                     </div>
                 </form>
             <?php } ?>

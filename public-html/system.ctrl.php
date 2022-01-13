@@ -8,6 +8,22 @@ function phpShowSystemFeedback($feedback_id) {
             $feedback_type="danger";
             $feedback_text="Wrong email or password!";
             break;
+        case "801":
+            $feedback_type="danger";
+            $feedback_text="No seats available in Course OOP";
+            break;
+        case "802":
+            $feedback_type="danger";
+            $feedback_text="No seats available in Course PSP";
+            break;
+        case "803":
+            $feedback_type="danger";
+            $feedback_text="No seats available in Course System";
+            break;
+        case "900":
+            $feedback_type="success";
+            $feedback_text="Registration successful";
+            break;
         default:
             $feedback_type="";
             $feedback_text="";

@@ -31,6 +31,7 @@ if(!empty($_SESSION["msgid"])){
   <body>
     <div class="container">
 
+    <!-- SYSTEM FEEDBACK MESSAGES -->
     <?php if (!empty($_SESSION["msgid"]) && phpShowSystemFeedback($_SESSION["msgid"])[0]!="") { ?>
 
       <div class="row">
@@ -84,6 +85,8 @@ if(!empty($_SESSION["msgid"])){
     </div>
 
     <?php 
+    //resetting the session variables at the end of the is necessary
+    //so we don't go inside conditions that we don't want to
     $_SESSION["msgid"]="";
     $_SESSION["option"]="";
     ?>
