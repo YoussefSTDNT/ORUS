@@ -83,7 +83,10 @@ if(!empty($_SESSION["msgid"])){
       <small>Copyright &copy; ORUS</small>
     </div>
 
-    <?php $_SESSION["msgid"]=""; ?>
+    <?php 
+    $_SESSION["msgid"]="";
+    $_SESSION["option"]="";
+    ?>
 
     <!-- Optional JavaScript; choose one of the two! -->
     <script>
