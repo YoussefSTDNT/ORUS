@@ -80,9 +80,6 @@ if(empty($_SESSION["uid"])){
                                 echo '</tr>';
                                 ?>
                             <?php } ?>
-                            <tr>
-                                <td></td>
-                            </tr>
                         </tbody>
                     </table>
                     <div class="mb-2">
