@@ -2,7 +2,7 @@
     session_start();
     require 'system.ctrl.php';
 
-    //server side checkbox validation (at least one box has to be selected)
+    //server side checkbox validation (at least one box has to be checked/selected)
     if(empty($_SESSION["msgid"]) && empty($_POST["2001"]) && empty($_POST["2002"]) && empty($_POST["2003"])){
         $_SESSION["msgid"]="850";
         header("Location: student.php");
