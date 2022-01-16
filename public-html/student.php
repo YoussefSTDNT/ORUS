@@ -56,7 +56,9 @@ if(empty($_SESSION["uid"])){
         <div class="container">
 
             <!-- STUDENT REGISTRATION FORM -->
-            <div class="rounded-top border border-dark mb-0 sign-in-row col-3"><h2>Registration</h2></div>
+            <div class="rounded-top border border-dark mb-0 sign-in-row col-3">
+                <h2>Registration</h2>
+            </div>
             <form name="formStudentRegistration" action="student-registration.ctrl.php" method="post">
                 <div class="sign-in-row rounded border border-dark flex-column">
                     <table class="table text-center">
@@ -87,6 +89,37 @@ if(empty($_SESSION["uid"])){
                     </div>
                 </div>
             </form>
+
+            <!-- Student's Registered Courses, his marks and attendace -->
+            <div class="rounded-top border border-dark mb-0 sign-in-row col-3">
+                <h3>Courses Registered</h3>
+            </div>
+            <div class="sign-in-row rounded border border-dark flex-column">
+                <table class="table text-center">
+                    <thead>
+                    
+                        <tr>
+                        <th scope="col">Course ID</th>
+                        <th scope="col">Your Grade</th>
+                        <th scope="col">Your Attendance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- How to use a variable inside query.
+                                since the query is already a string you can just concatenate using (.) dot
+                                and depending if you want it a number or not you put ' before " and then ' after " if it's a string(characters) and not a number -->
+                        <?php foreach($connection->query("SELECT student_id,course_id,student_course_grade,student_course_attendance FROM student_courses WHERE student_id=". $_SESSION['uid'] .";") as $record){ ?>
+                            <?php
+                            echo '<tr>';
+                            echo '<td>' . $record['course_id'] . '</td>';
+                            echo '<td>' . $record['student_course_grade'] . '</td>';
+                            echo '<td>' . $record['student_course_attendance'] . '</td>';
+                            echo '</tr>';
+                            ?>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
 
             <?php $_SESSION["msgid"]="";?>
         </div>
