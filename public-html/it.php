@@ -30,7 +30,7 @@ if(empty($_SESSION["uid"])){
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom sign-in-row border border-dark">
             <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none col-lg-6">
                 <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-                <span class="fs-4">Hi, <?php echo $dbUserRow["it_users_name"];?></span>
+                <span class="fs-4">Hi, IT <?php echo $dbUserRow["it_users_name"];?></span>
             </div>
             <div class="ms-5 me-4">
                 <ul class="nav nav-pills">
@@ -45,7 +45,7 @@ if(empty($_SESSION["uid"])){
       </div>
     </div>
     <div class="sign-in-row rounded border border-dark flex-column">
-        <table class="table table_striped text-center">
+        <table class="table table-responsive table_striped text-center">
             <thead>
             
                 <tr>
@@ -79,7 +79,7 @@ if(empty($_SESSION["uid"])){
       </div>
     </div>
     <div class="sign-in-row rounded border border-dark flex-column">
-        <table class="table table_striped text-center">
+        <table class="table table-responsive table_striped text-center">
             <thead>
             
                 <tr>
@@ -128,7 +128,7 @@ if(empty($_SESSION["uid"])){
           <button type="submit" class="btn btn-primary">Submit</button>
       </form>
       <?php if(!empty($_SESSION["studentCriteriaId"])) { ?>           
-        <table class="table table-striped text-center">
+        <table class="table table-responsive table-striped text-center">
             <thead>
                 <tr>
                 <th scope="col">Course ID</th>
@@ -157,7 +157,7 @@ if(empty($_SESSION["uid"])){
       </div>
     </div>
     <div class="sign-in-row rounded border border-dark flex-column">
-        <table class="table table_striped text-center">
+        <table class="table table-responsive table_striped text-center">
             <thead>
             
                 <tr>

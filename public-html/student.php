@@ -31,7 +31,7 @@ if(empty($_SESSION["uid"])){
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom sign-in-row border border-dark">
             <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none col-lg-6">
                 <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-                <span class="fs-4">Hi, <?php echo $dbUserRow["student_name"];?></span>
+                <span class="fs-4">Hi, Student <?php echo $dbUserRow["student_name"];?></span>
             </div>
             <div class="ms-5 me-4">
                 <ul class="nav nav-pills">
@@ -61,7 +61,7 @@ if(empty($_SESSION["uid"])){
             </div>
             <form name="formStudentRegistration" action="student-registration.ctrl.php" method="post">
                 <div class="sign-in-row rounded border border-dark flex-column">
-                    <table class="table text-center">
+                    <table class="table table-responsive text-center">
                         <thead>
                         
                             <tr>
@@ -95,7 +95,7 @@ if(empty($_SESSION["uid"])){
                 <h3>Courses Registered</h3>
             </div>
             <div class="sign-in-row rounded border border-dark flex-column">
-                <table class="table text-center">
+                <table class="table table-responsive text-center">
                     <thead>
                     
                         <tr>

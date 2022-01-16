@@ -30,7 +30,7 @@ if(empty($_SESSION["uid"])){
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom sign-in-row rounded border border-dark">
             <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none col-lg-6">
                 <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-                <span class="fs-4">Hi, <?php echo $dbUserRow["professor_name"];?></span>
+                <span class="fs-4">Hi, Professor <?php echo $dbUserRow["professor_name"];?></span>
             </div>
             <div class="ms-5 me-4">
                 <ul class="nav nav-pills">
@@ -60,7 +60,7 @@ if(empty($_SESSION["uid"])){
             </form>
 
             <?php if($_SESSION["showSelectedStudentsFlag"]==1){ ?>
-                <table class="table table-striped">
+                <table class="table table-responsive table-striped">
                     <thead>
                         <tr>
                         <th scope="col">#</th>
@@ -87,7 +87,7 @@ if(empty($_SESSION["uid"])){
                     </tbody>
                     </table>
             <?php } else if($_SESSION["showSelectedStudentsFlag"]==2) { ?>
-                <table class="table table-dark table-striped">
+                <table class="table table-responsive table-dark table-striped">
                     <thead>
                         <tr>
                         <th scope="col">#</th>
@@ -123,7 +123,7 @@ if(empty($_SESSION["uid"])){
             </form>
 
             <?php if(!empty($_SESSION["showStudentsFlag"])){ ?>
-                <table class="table">
+                <table class="table table-responsive">
                     <thead>
                         <tr>
                         <th scope="col">#</th>
