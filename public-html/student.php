@@ -28,7 +28,7 @@ if(empty($_SESSION["uid"])){
     $db_data="";
     ?>
     
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom sign-in-row rounded border border-dark">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom sign-in-row border border-dark">
             <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none col-lg-6">
                 <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
                 <span class="fs-4">Hi, <?php echo $dbUserRow["student_name"];?></span>
@@ -43,10 +43,10 @@ if(empty($_SESSION["uid"])){
         <!-- SYSTEM FEEDBACK MESSAGES -->
         <?php if (!empty($_SESSION["msgid"]) && phpShowSystemFeedback($_SESSION["msgid"])[0]!="") { ?>
 
-            <div class="row">
-                <div class="col-12">
+            <div class="row d-flex justify-content-center">
+                <div class="col-10 text-center">
                     <div class="alert alert-<?php echo (phpShowSystemFeedback($_SESSION['msgid'])[0]); ?>" role="alert">
-                    <?php echo (phpShowSystemFeedback($_SESSION['msgid'])[1]); ?>
+                    <h2><?php echo (phpShowSystemFeedback($_SESSION['msgid'])[1]); ?></h2>
                     </div>
                 </div>
             </div>
@@ -54,11 +54,12 @@ if(empty($_SESSION["uid"])){
         <?php } ?>
 
         <div class="container">
-            
-                <div class="rounded-top border border-dark mb-0 sign-in-row col-3"><h2>Registration</h2></div>
-                <div class="sign-in-row rounded border border-dark">
-                    
-                    <table class="table text-center ">
+
+            <!-- STUDENT REGISTRATION FORM -->
+            <div class="rounded-top border border-dark mb-0 sign-in-row col-3"><h2>Registration</h2></div>
+            <form name="formStudentRegistration" action="student-registration.ctrl.php" method="post">
+                <div class="sign-in-row rounded border border-dark flex-column">
+                    <table class="table text-center">
                         <thead>
                         
                             <tr>
@@ -69,29 +70,30 @@ if(empty($_SESSION["uid"])){
                             </tr>
                         </thead>
                         <tbody>
-                            <form action='checkbox-form.ctrl.php' method='post'>
                             <?php foreach($connection->query('select * from courses') as $record){ ?>
                                 <?php
                                 echo '<tr>';
-                                echo "<td><input class='form-check-input' type='checkbox' name=". $record['course_name'] . "value=". $record['course_id'] . "id='flexCheckDefault' checked></td>"; 
+                                echo "<td><input class='form-check-input' type='checkbox' name='". $record['course_id'] . "' value='". $record['course_id'] . "' id='flexCheckDefault'></td>"; 
                                 echo '<td>' . $record['course_id'] . '</td>';
                                 echo '<td>' . $record['course_name'] . '</td>';
                                 echo '<td>' . $record['course_seats'] . '</td>';
                                 echo '</tr>';
                                 ?>
                             <?php } ?>
-                            <button type='button' class='btn btn-primary'>Submit</button>
-                            </form>
+                            <tr>
+                                <td></td>
+                            </tr>
                         </tbody>
-                        
                     </table>
-                    
-                     
+                    <div class="mb-2">
+                    <button type='submit button' class='btn btn-primary'>Submit</button>
+                    </div>
                 </div>
-                
-            
+            </form>
 
-    </div>
+            <?php $_SESSION["msgid"]="";?>
+        </div>
+
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
