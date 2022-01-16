@@ -159,10 +159,67 @@ if(empty($_SESSION["uid"])){
                 </form>
             <?php } ?>
         </div>
+
         <div class="sign-in-row rounded border border-dark d-flex flex-column" >
-                
+
+            <!-- THIS FORM FOR ASSIGNING GRADES OF STUDENTS -->
+
+            <form action="mark-selected-student.ctrl.php" method="post">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Student ID</span>
+                    </div>
+                    <input type="text" name="studentCriteriaId" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Course ID</span>
+                    </div>
+                    <input type="text" name="studentCriteriaCourseId" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Student's Mark</span>
+                    </div>
+                    <input type="text" name="studentCriteriaMark" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary">Assign Mark</button>
+                </div>
+            </form>
         </div>
 
+        <div class="sign-in-row rounded border border-dark d-flex flex-column" >
+
+        <!-- THIS FORM FOR ASSIGNING ATTENDANCE OF STUDENTS -->
+
+        <form action="attendance-selected-student.ctrl.php" method="post">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Student ID</span>
+                </div>
+                <input type="text" name="studentCriteriaId" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Course ID</span>
+                </div>
+                <input type="text" name="studentCriteriaCourseId" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Student's Attendance</span>
+                </div>
+                <input type="text" name="studentCriteriaAttendance" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary">Assign Attendance</button>
+            </div>
+        </form>
     </div>
 
     <?php 
