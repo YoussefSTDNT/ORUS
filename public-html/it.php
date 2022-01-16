@@ -40,6 +40,19 @@ if(empty($_SESSION["uid"])){
     </header>
 
     <div class="container">
+
+      <!-- SYSTEM FEEDBACK MESSAGES -->
+      <?php if (!empty($_SESSION["msgid"]) && phpShowSystemFeedback($_SESSION["msgid"])[0]!="") { ?>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-11 text-center">
+                <div class="alert alert-<?php echo (phpShowSystemFeedback($_SESSION['msgid'])[0]); ?>" role="alert">
+                <h2><?php echo (phpShowSystemFeedback($_SESSION['msgid'])[1]); ?></h2>
+                </div>
+            </div>
+        </div>
+      <?php } ?>
+
       <div class="rounded-top border border-dark mb-0 sign-in-row d-flex justify-content-center">
         <h2>Professors Data</h2>
       </div>

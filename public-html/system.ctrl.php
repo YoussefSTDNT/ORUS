@@ -28,6 +28,22 @@ function phpShowSystemFeedback($feedback_id) {
             $feedback_type="success";
             $feedback_text="Registration successful";
             break;
+        case "901":
+            $feedback_type="success";
+            $feedback_text="Mark Assigned Successfully";
+            break;
+        case "902":
+            $feedback_type="success";
+            $feedback_text="Attendance Assigned Successfully";
+            break;
+        case "860":
+            $feedback_type="danger";
+            $feedback_text="USER DOESN'T EXIST";
+            break;
+        case "870":
+            $feedback_type="danger";
+            $feedback_text="COURSE DOESN'T EXIST";
+            break;
         default:
             $feedback_type="";
             $feedback_text="";

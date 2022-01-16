@@ -40,6 +40,18 @@ if(empty($_SESSION["uid"])){
     </header>
     <div class="container">
 
+        <!-- SYSTEM FEEDBACK MESSAGES -->
+        <?php if (!empty($_SESSION["msgid"]) && phpShowSystemFeedback($_SESSION["msgid"])[0]!="") { ?>
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-11 text-center">
+                    <div class="alert alert-<?php echo (phpShowSystemFeedback($_SESSION['msgid'])[0]); ?>" role="alert">
+                    <h2><?php echo (phpShowSystemFeedback($_SESSION['msgid'])[1]); ?></h2>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+
         <div class="sign-in-row rounded border border-dark d-flex flex-column" >
             <!-- THIS FORM FOR SHOWING SELECTED STUDENTS -->
             <form action="show-selected-students.ctrl.php" method="post">
@@ -227,6 +239,7 @@ if(empty($_SESSION["uid"])){
         $_SESSION["showStudentsFlag"]="";
         $_SESSION["studentCriteriaName"]="";
         $_SESSION["studentCriteriaId"]="";
+        $_SESSION['msgid']="";
     ?>
 
     <!-- Optional JavaScript; choose one of the two! -->

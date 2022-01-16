@@ -11,9 +11,15 @@ $db_data=array($studentId,$courseId);
 $dbStudentCourseRow=phpFetchDB("SELECT * FROM student_courses WHERE student_id=? AND course_id=?;",$db_data);
 $db_data="";
 
-//change the grade of the student with the related course using the row's primary key
-$db_data=array($studentCourseAttendance,$dbStudentCourseRow["student_course_id"]);
-phpModifyDB("UPDATE student_courses SET student_course_attendance=? WHERE student_course_id=?;",$db_data);
-$db_data="";
-header("Location: professor.php");
+if (!is_array($dbStudentCourseRow)) { //if array doesn't exist then user not found in database
+    $_SESSION["msgid"] = "860";
+    header('Location: professor.php');
+} else {
+    //change the grade of the student with the related course using the row's primary key
+    $db_data=array($studentCourseAttendance,$dbStudentCourseRow["student_course_id"]);
+    phpModifyDB("UPDATE student_courses SET student_course_attendance=? WHERE student_course_id=?;",$db_data);
+    $db_data="";
+    $_SESSION["msgid"] = "902";
+    header("Location: professor.php");
+}
 ?>
