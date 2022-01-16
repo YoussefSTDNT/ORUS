@@ -20,6 +20,10 @@ function phpShowSystemFeedback($feedback_id) {
             $feedback_type="danger";
             $feedback_text="No seats available in Course System";
             break;
+        case "850":
+            $feedback_type="danger";
+            $feedback_text="PLEASE SELECT A COURSE TO REGISTER";
+            break;
         case "900":
             $feedback_type="success";
             $feedback_text="Registration successful";

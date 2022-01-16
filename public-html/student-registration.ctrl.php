@@ -2,6 +2,12 @@
     session_start();
     require 'system.ctrl.php';
 
+    //server side checkbox validation (at least one box has to be selected)
+    if(empty($_SESSION["msgid"]) && empty($_POST["2001"]) && empty($_POST["2002"]) && empty($_POST["2003"])){
+        $_SESSION["msgid"]="850";
+        header("Location: student.php");
+    }
+
     //fetching seats from DB to check if available, to send feedback message either success or failure
     //and only if success then we register courses (change values in DB).
     $db_data=array(2001);
